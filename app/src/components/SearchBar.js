@@ -13,31 +13,17 @@ const client = Algolia(config.algolia.appId, config.algolia.searchKey);
 const index = client.initIndex(config.algolia.index);
 
 const getResourceUrl = resource => {
-	if (resource.type === 'user') {
-		return `/profile/${resource._id}`;
-	} else if (resource.type === 'article') {
-		return `/rss/${resource.rss}/articles/${resource._id}`;
-	} else if (resource.type === 'episode') {
-		return `/podcasts/${resource.podcast}`;
-	} else if (resource.type === 'rss') {
+	if (resource.type === 'rss') {
 		return `/rss/${resource._id}`;
 	} else if (resource.type === 'podcast') {
 		return `/podcasts/${resource._id}`;
-	} else if (resource.type === 'playlist') {
-		return `/playlists/${resource._id}`;
-	} else {
-		console.log(resource); // eslint-disable-line no-console
+	} else if (resource.type === 'episode') {
+		return `/podcasts/${resource._id}`;
 	}
 };
 
 const getResourceTitle = resource => {
-	if (resource.type === 'user') {
-		return resource.name;
-	} else if (resource.type === 'playlist') {
-		return resource.name;
-	} else {
-		return resource.title;
-	}
+	return resource.title;
 };
 
 class SearchBar extends React.Component {
@@ -60,6 +46,7 @@ class SearchBar extends React.Component {
 		index.search(
 			{
 				query: searchText,
+				//optionalFilters: ['type:rss<score=2>', 'type:podcast<score=1>'],
 			},
 			(err, results) => {
 				if (err) {
@@ -158,7 +145,7 @@ class SearchBar extends React.Component {
 		if (this.state.results.length === 0) {
 			results = (
 				<div className="panel-element">
-					<span>No search results found...</span>
+					<span>Sorry, no search results found...</span>
 				</div>
 			);
 		} else {
