@@ -48,14 +48,14 @@ class SearchBar extends React.Component {
 				query: searchText,
 				optionalFilters: ['type:rss<score=2>', 'type:podcast<score=1>'],
 			},
-			(err, results) => {
+			(err, res) => {
 				if (err) {
 					console.log(err); // eslint-disable-line no-console
 					return;
 				}
 
 				this.setState({
-					results: results.hits.slice(0, 5),
+					results: res.hits.slice(0, 5),
 				});
 			},
 		);
