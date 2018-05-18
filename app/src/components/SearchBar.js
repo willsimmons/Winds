@@ -46,7 +46,7 @@ class SearchBar extends React.Component {
 		index.search(
 			{
 				query: searchText,
-				//optionalFilters: ['type:rss<score=2>', 'type:podcast<score=1>'],
+				optionalFilters: ['type:rss<score=2>', 'type:podcast<score=1>'],
 			},
 			(err, results) => {
 				if (err) {
