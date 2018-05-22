@@ -4,7 +4,8 @@
   "scripts": {
     "start": "cd dist && node server.js",
     "watch": "nodemon start",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "test": "npx mocha --reporter spec"
   },
   "author": [
     {
@@ -31,5 +32,9 @@
     "franc-min": "^4.0.0",
     "open-graph-scraper": "^3.3.0",
     "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
