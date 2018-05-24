@@ -39,6 +39,8 @@ describe('Color Code Converter API', async function() {
   }
   if (~config.cache.uri.indexOf('localhost')) {
     logger.warn(`redis uri is not configured for testing`)
+  } else {
+    // flush redis
   }
   console.log(1)
 
