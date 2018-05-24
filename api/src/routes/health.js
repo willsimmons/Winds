@@ -1,6 +1,6 @@
-import Health from '../controllers/health';
+import Health from "../controllers/health"
 
 module.exports = api => {
-	api.route('/health').get(Health.health);
-	api.route('/test').get(Health.test);
-};
+    api.route("/health").get(Health.health)
+    api.route("/status").get(Health.status)
+}

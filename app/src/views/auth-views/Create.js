@@ -123,6 +123,15 @@ class OnboardingGrid extends React.Component {
 						? 'Continue'
 						: 'Select at least 3 interests to continue'}
 				</button>
+				<button
+					className="btn link"
+					onClick={e => {
+						e.preventDefault();
+						this.props.done();
+					}}
+				>
+					Skip
+				</button>
 			</div>
 		);
 	}
@@ -232,7 +241,7 @@ class AccountDetailsForm extends React.Component {
 	validatePassword(e) {
 		let password = e.target.value.trim();
 
-		if (password.length > 8) {
+		if (password.length >= 8) {
 			this.setState(
 				{
 					password: password,
@@ -267,7 +276,12 @@ class AccountDetailsForm extends React.Component {
 			})
 			.catch(err => {
 				let errorMessage;
-				if (err.response && err.response.status > 399 && err.response.status < 500 && err.response.data ) {
+				if (
+					err.response &&
+					err.response.status > 399 &&
+					err.response.status < 500 &&
+					err.response.data
+				) {
 					errorMessage = err.response.data;
 				} else {
 					errorMessage =
@@ -318,7 +332,7 @@ class AccountDetailsForm extends React.Component {
 							type="text"
 							name="username"
 							maxLength="15"
-							placeholder="Username"
+							placeholder="Username (alphanumeric)"
 							onChange={this.validateUsername}
 						/>
 					</label>
@@ -338,7 +352,7 @@ class AccountDetailsForm extends React.Component {
 							autoComplete="current-password"
 							type="password"
 							name="password"
-							placeholder="Password"
+							placeholder="Password (>= 8 characters)"
 							onChange={this.validatePassword}
 						/>
 					</label>
