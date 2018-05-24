@@ -5,7 +5,9 @@
 				"start": "cd dist && node server.js",
 				"watch": "nodemon start",
 				"build": "./build.sh",
-				"prettier": "prettier --config .prettierrc --write \"src/**/*.js\""
+				"prettier": "prettier --config .prettierrc --write \"src/**/*.js\"",
+        "test": "NODE_ENV=test mocha --require babel-core/register test"
+
 		},
 		"author": [
 				{

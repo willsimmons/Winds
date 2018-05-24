@@ -13,6 +13,8 @@ const connection = mongoose.connect(config.database.uri, {
     bufferMaxEntries: 0,
 })
 
+
+
 connection
     .then(db => {
         logger.info(
