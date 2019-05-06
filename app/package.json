@@ -27,7 +27,9 @@
     "build": "react-scripts build",
     "start": "concurrently \"cross-env BROWSER=none yarn react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "pack": "electron-builder --dir",
-    "dist": "npx build --x64 --macos --win --linux --c.extraMetadata.main=build/electron.js -p always"
+    "dist": "npx build --x64 --macos --win --linux --c.extraMetadata.main=build/electron.js -p always",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "algoliasearch": "^3.27.1",
@@ -68,7 +70,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-waypoint": "^8.0.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "assert": "^1.4.1",
@@ -142,5 +145,6 @@
         "path": "releases"
       }
     }
-  }
+  },
+  "snyk": true
 }
