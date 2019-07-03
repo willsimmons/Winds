@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.3
+version: v1.13.5
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -12,3 +12,28 @@ patch:
         patched: '2019-02-16T15:19:46.275Z'
     - stream-analytics > request > hawk > cryptiles > boom > hoek:
         patched: '2019-02-16T15:19:46.275Z'
+  SNYK-JS-LODASH-450202:
+    - winston > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull-arena > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - mongoose > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - express-winston > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull-arena > bull > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull-arena > handlebars > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - mongoose-bcrypt > mongoose > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull-arena > handlebars-helpers > handlebars > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
+    - bull-arena > express-handlebars > handlebars > async > lodash:
+        patched: '2019-07-03T21:32:47.441Z'
